@@ -1288,7 +1288,7 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                 <!-- Filtres avec les 5 catégories dont Vidéo & Motion -->
                 <div class="flex flex-wrap gap-2" id="portfolio-filters" role="tablist" aria-label="Filtrer les projets récents">
                     <button type="button" data-filter="all" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-accent text-midnight-950 transition-colors shadow-lg shadow-accent/20">
-                        Tous (13)
+                        Tous (14)
                     </button>
                     <button type="button" data-filter="logo" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-midnight-900 text-slate-300 hover:text-white border border-slate-800 transition-colors">
                         01 • Identité &amp; Logo
@@ -1544,7 +1544,7 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                                 05 • Vidéo &amp; Motion
                             </div>
                             <div class="absolute top-3 right-3 z-20 px-2.5 py-1 rounded-lg bg-midnight-950/85 backdrop-blur-md border border-slate-700/80 text-[11px] font-bold text-white">
-                                <span class="proj-counter">1</span>/3
+                                <span class="proj-counter">1</span>/4
                             </div>
 
                             <!-- Slides Vidéos -->
@@ -1571,6 +1571,17 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                                 </div>
                             </div>
                             <div class="proj-slide" data-slide-idx="2">
+                                <div class="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl bg-black/60">
+                                    <video src="videos/ne-facebook.mp4" muted loop playsinline preload="metadata" class="proj-img w-full h-full object-contain"></video>
+                                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                        <div class="w-12 h-12 rounded-full bg-rose-500/90 text-white flex items-center justify-center shadow-xl shadow-rose-500/30 group-hover:scale-110 transition-transform">
+                                            <span class="text-base ml-0.5 font-black">▶</span>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-bold text-slate-300 border border-white/10">9:16</span>
+                                </div>
+                            </div>
+                            <div class="proj-slide" data-slide-idx="3">
                                 <div class="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl bg-black/60">
                                     <video src="videos/montage-reel.mp4" muted loop playsinline preload="metadata" class="proj-img w-full h-full object-contain"></video>
                                     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -1603,13 +1614,16 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                             </div>
 
                             <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-slate-800/80">
-                                <button type="button" onclick="goToCategorySlide('video', 0, event)" class="proj-pill px-2.5 py-1 rounded-lg text-[11px] font-bold bg-accent text-midnight-950 transition-all">
+                                <button type="button" onclick="goToCategorySlide('video', 0, event)" class="proj-pill px-2 py-1 rounded-lg text-[10px] font-bold bg-accent text-midnight-950 transition-all">
                                     Motion Reel
                                 </button>
-                                <button type="button" onclick="goToCategorySlide('video', 1, event)" class="proj-pill px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-midnight-950/90 text-slate-300 hover:text-white border border-slate-800 transition-all">
-                                    Spot Coffee Mug
+                                <button type="button" onclick="goToCategorySlide('video', 1, event)" class="proj-pill px-2 py-1 rounded-lg text-[10px] font-semibold bg-midnight-950/90 text-slate-300 hover:text-white border border-slate-800 transition-all">
+                                    Spot Mug
                                 </button>
-                                <button type="button" onclick="goToCategorySlide('video', 2, event)" class="proj-pill px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-midnight-950/90 text-slate-300 hover:text-white border border-slate-800 transition-all">
+                                <button type="button" onclick="goToCategorySlide('video', 2, event)" class="proj-pill px-2 py-1 rounded-lg text-[10px] font-semibold bg-midnight-950/90 text-slate-300 hover:text-white border border-slate-800 transition-all">
+                                    Nora Essentials
+                                </button>
+                                <button type="button" onclick="goToCategorySlide('video', 3, event)" class="proj-pill px-2 py-1 rounded-lg text-[10px] font-semibold bg-midnight-950/90 text-slate-300 hover:text-white border border-slate-800 transition-all">
                                     Montage Reel
                                 </button>
                             </div>
@@ -2981,6 +2995,15 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                         desc: 'Spot publicitaire vertical 9:16 pour Thermo Coffee Mug, optimisé pour les réseaux sociaux, Reels et Stories.'
                     },
                     {
+                        title: 'Nora Essentials Promo',
+                        fileKey: 'ne-facebook.mp4',
+                        src: 'videos/ne-facebook.mp4',
+                        type: 'video',
+                        ratio: '9 / 16',
+                        poster: '',
+                        desc: 'Spot publicitaire Facebook & réseaux pour Nora Essentials : promotion produit, branding et dynamisme visuel.'
+                    },
+                    {
                         title: 'Montage Vidéo Reel',
                         fileKey: 'montage-reel.mp4',
                         src: 'videos/montage-reel.mp4',
@@ -4199,6 +4222,15 @@ const MOTION_CONFIG = {
             shortTitle: "Spot Coffee Mug (9:16)",
             description: "Spot publicitaire vertical au format Reel / Story : mise en valeur produit percutante et dynamique pour les réseaux.",
             src: "videos/commercial-mug.mp4",
+            poster: "",
+            embed: "",
+            ratio: "9 / 16"
+        },
+        {
+            title: "Nora Essentials • Vidéo promotionnelle Facebook (9:16)",
+            shortTitle: "Nora Essentials (9:16)",
+            description: "Campagne vidéo promotionnelle pour Nora Essentials conçue pour Facebook et les formats mobiles verticaux.",
+            src: "videos/ne-facebook.mp4",
             poster: "",
             embed: "",
             ratio: "9 / 16"
