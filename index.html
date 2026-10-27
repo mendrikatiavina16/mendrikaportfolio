@@ -400,6 +400,25 @@
             user-select: none;
         }
 
+        .proj-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0.75rem;
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55));
+            pointer-events: none;
+        }
+
+        .mo-playlist-pill {
+            transition: all 0.25s ease;
+        }
+        .mo-playlist-pill.is-active {
+            background-color: #5B9DFF !important;
+            color: #040711 !important;
+            border-color: #38bdf8 !important;
+            box-shadow: 0 4px 14px rgba(91, 157, 255, 0.35);
+        }
+
         /* Barre de progression fine et lumineuse */
         .proj-progress-track {
             position: absolute;
@@ -1266,10 +1285,10 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                     
                 </div>
 
-                <!-- Filtres avec les 4 catégories dont "Plaque" -->
+                <!-- Filtres avec les 5 catégories dont Vidéo & Motion -->
                 <div class="flex flex-wrap gap-2" id="portfolio-filters" role="tablist" aria-label="Filtrer les projets récents">
                     <button type="button" data-filter="all" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-accent text-midnight-950 transition-colors shadow-lg shadow-accent/20">
-                        Tous (10)
+                        Tous (13)
                     </button>
                     <button type="button" data-filter="logo" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-midnight-900 text-slate-300 hover:text-white border border-slate-800 transition-colors">
                         01 • Identité &amp; Logo
@@ -1283,14 +1302,17 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                     <button type="button" data-filter="plaque" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-midnight-900 text-slate-300 hover:text-white border border-slate-800 transition-colors">
                         04 • Plaque
                     </button>
+                    <button type="button" data-filter="video" class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-midnight-900 text-slate-300 hover:text-white border border-slate-800 transition-colors">
+                        05 • Vidéo &amp; Motion
+                    </button>
                 </div>
             </div>
 
-            <!-- CONTENEUR RELATIF DES 4 CARTES + FENÊTRE SPOTLIGHT AU PREMIER PLAN -->
+            <!-- CONTENEUR RELATIF DES CARTES + FENÊTRE SPOTLIGHT AU PREMIER PLAN -->
             <div id="portfolio-stage-wrapper" class="relative">
 
-                <!-- Grille des 4 Catégories avec Carrousel Animé Intuitif -->
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-500" id="portfolio-grid">
+                <!-- Grille des 5 Catégories avec Carrousel Animé Intuitif -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 transition-all duration-500" id="portfolio-grid">
                     
                     <!-- ==========================================
                          CATÉGORIE 01 : IDENTITÉ & LOGO (3 images)
@@ -1513,6 +1535,87 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                         </div>
                     </article>
 
+                    <!-- ==========================================
+                         CATÉGORIE 05 : VIDÉO & MOTION (3 vidéos)
+                         ========================================== -->
+                    <article data-category="video" data-cat-id="video" class="portfolio-item project-showcase-card rounded-2xl overflow-hidden flex flex-col">
+                        <div class="proj-stage group cursor-pointer" onclick="openCategoryCurrentModal('video', event)">
+                            <div class="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-lg bg-midnight-950/85 backdrop-blur-md border border-rose-400/40 text-[10px] font-extrabold text-rose-300 tracking-wider uppercase">
+                                05 • Vidéo &amp; Motion
+                            </div>
+                            <div class="absolute top-3 right-3 z-20 px-2.5 py-1 rounded-lg bg-midnight-950/85 backdrop-blur-md border border-slate-700/80 text-[11px] font-bold text-white">
+                                <span class="proj-counter">1</span>/3
+                            </div>
+
+                            <!-- Slides Vidéos -->
+                            <div class="proj-slide is-active" data-slide-idx="0">
+                                <div class="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl bg-black/60">
+                                    <video src="videos/motion-reel.mp4" poster="images/video-poster.webp" muted loop playsinline preload="metadata" class="proj-img w-full h-full object-cover"></video>
+                                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                        <div class="w-12 h-12 rounded-full bg-rose-500/90 text-white flex items-center justify-center shadow-xl shadow-rose-500/30 group-hover:scale-110 transition-transform">
+                                            <span class="text-base ml-0.5 font-black">▶</span>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-bold text-slate-300 border border-white/10">16:9</span>
+                                </div>
+                            </div>
+                            <div class="proj-slide" data-slide-idx="1">
+                                <div class="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl bg-black/60">
+                                    <video src="videos/commercial-mug.mp4" muted loop playsinline preload="metadata" class="proj-img w-full h-full object-contain"></video>
+                                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                        <div class="w-12 h-12 rounded-full bg-rose-500/90 text-white flex items-center justify-center shadow-xl shadow-rose-500/30 group-hover:scale-110 transition-transform">
+                                            <span class="text-base ml-0.5 font-black">▶</span>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-bold text-slate-300 border border-white/10">9:16</span>
+                                </div>
+                            </div>
+                            <div class="proj-slide" data-slide-idx="2">
+                                <div class="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl bg-black/60">
+                                    <video src="videos/montage-reel.mp4" muted loop playsinline preload="metadata" class="proj-img w-full h-full object-contain"></video>
+                                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                        <div class="w-12 h-12 rounded-full bg-rose-500/90 text-white flex items-center justify-center shadow-xl shadow-rose-500/30 group-hover:scale-110 transition-transform">
+                                            <span class="text-base ml-0.5 font-black">▶</span>
+                                        </div>
+                                    </div>
+                                    <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-bold text-slate-300 border border-white/10">9:16</span>
+                                </div>
+                            </div>
+
+                            <button type="button" class="proj-nav-arrow left-2.5" onclick="stepCategorySlide('video', -1, event)" aria-label="Vidéo précédente">‹</button>
+                            <button type="button" class="proj-nav-arrow right-2.5" onclick="stepCategorySlide('video', 1, event)" aria-label="Vidéo suivante">›</button>
+
+                            <div class="proj-progress-track">
+                                <div class="proj-progress-bar" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between gap-2">
+                                    <span class="text-[10px] font-bold text-rose-300 uppercase tracking-wider">Motion &amp; Montage</span>
+                                    <button type="button" onclick="openCategoryCurrentModal('video', event)" class="text-[11px] font-semibold text-rose-300 hover:text-white transition-colors">
+                                        Regarder ▶
+                                    </button>
+                                </div>
+                                <h3 class="proj-active-title text-lg font-extrabold text-white mt-1 truncate">Motion Reel Publicitaire</h3>
+                                <p class="proj-active-desc text-xs text-slate-400 mt-1 line-clamp-2">Animation publicitaire dynamique en motion design : identité et modélisation de marque.</p>
+                            </div>
+
+                            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-slate-800/80">
+                                <button type="button" onclick="goToCategorySlide('video', 0, event)" class="proj-pill px-2.5 py-1 rounded-lg text-[11px] font-bold bg-accent text-midnight-950 transition-all">
+                                    Motion Reel
+                                </button>
+                                <button type="button" onclick="goToCategorySlide('video', 1, event)" class="proj-pill px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-midnight-950/90 text-slate-300 hover:text-white border border-slate-800 transition-all">
+                                    Spot Coffee Mug
+                                </button>
+                                <button type="button" onclick="goToCategorySlide('video', 2, event)" class="proj-pill px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-midnight-950/90 text-slate-300 hover:text-white border border-slate-800 transition-all">
+                                    Montage Reel
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
 
                 <!-- =========================================================
@@ -1529,15 +1632,25 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                         <!-- Zone Gauche : Visuel Grand Format + Loupe Interactive + Switcher de Fond -->
                         <div id="spotlight-viewport" class="spotlight-viewport loupe-enabled lg:col-span-7 bg-[#050916] min-h-[320px] sm:min-h-[430px] flex items-center justify-center p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-slate-800/80 select-none">
                             
-                            <!-- Barre d'outils flottante en haut de l'image -->
-                            <div class="absolute top-3.5 left-3.5 right-3.5 z-20 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
-                                <!-- Indicateur Loupe -->
+                            <!-- Barre d'outils flottante en haut de l'image / vidéo -->
+                            <div class="absolute top-3.5 left-3.5 right-3.5 z-20 flex flex-wrap items-center justify-between gap-2 pointer-events-none" id="spotlight-toolbar">
+                                <!-- Indicateur Loupe (Mode Image) -->
                                 <button type="button" id="spotlight-loupe-btn" onclick="toggleSpotlightLoupe(event)" class="pointer-events-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-midnight-950/90 backdrop-blur-md border border-accent/40 text-[11px] font-bold text-sky-300 hover:border-accent transition">
                                     <span>🔍 Loupe HD : Active</span>
                                 </button>
 
-                                <!-- Testeur de fond rapide -->
-                                <div class="pointer-events-auto flex items-center gap-1.5 bg-midnight-950/90 backdrop-blur-md border border-slate-800 rounded-xl px-2.5 py-1 text-[10px]">
+                                <!-- Badges Mode Vidéo (Mode Vidéo) -->
+                                <div id="spotlight-video-badges" class="pointer-events-auto hidden items-center gap-2">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-midnight-950/90 backdrop-blur-md border border-rose-400/40 text-[11px] font-bold text-rose-300">
+                                        🎬 Lecteur Vidéo HD
+                                    </span>
+                                    <span id="spotlight-video-ratio-badge" class="px-2.5 py-1 rounded-xl bg-midnight-950/90 border border-slate-800 text-[10px] text-slate-300 font-semibold">
+                                        Format : 16:9
+                                    </span>
+                                </div>
+
+                                <!-- Testeur de fond rapide (Mode Image) -->
+                                <div id="spotlight-bg-picker" class="pointer-events-auto flex items-center gap-1.5 bg-midnight-950/90 backdrop-blur-md border border-slate-800 rounded-xl px-2.5 py-1 text-[10px]">
                                     <span class="text-slate-400 font-semibold mr-1">Fond :</span>
                                     <button type="button" onclick="setSpotlightBg('#050916', this)" class="spot-bg-btn w-4 h-4 rounded-full bg-[#050916] border border-accent ring-2 ring-accent/60" title="Fond Sombre"></button>
                                     <button type="button" onclick="setSpotlightBg('#f1f5f9', this)" class="spot-bg-btn w-4 h-4 rounded-full bg-slate-100 border border-slate-400" title="Fond Clair"></button>
@@ -1548,6 +1661,11 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                             <!-- Image principale inspectée -->
                             <img id="spotlight-img" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20600%20480%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230e1838%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23040711%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3CradialGradient%20id%3D%22glow%22%20cx%3D%2250%25%22%20cy%3D%2242%25%22%20r%3D%2250%25%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2338bdf8%22%20stop-opacity%3D%220.32%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%235B9DFF%22%20stop-opacity%3D%220%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2FradialGradient%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20width%3D%22600%22%20height%3D%22480%22%20rx%3D%2228%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%22300%22%20cy%3D%22210%22%20r%3D%22210%22%20fill%3D%22url(%23glow)%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20x%3D%2224%22%20y%3D%2224%22%20width%3D%22552%22%20height%3D%22432%22%20rx%3D%2220%22%20fill%3D%22none%22%20stroke%3D%22%2338bdf8%22%20stroke-opacity%3D%220.3%22%20stroke-width%3D%222%22%20stroke-dasharray%3D%226%206%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%22300%22%20cy%3D%22185%22%20r%3D%2256%22%20fill%3D%22%23080e24%22%20stroke%3D%22%2338bdf8%22%20stroke-width%3D%222.5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%22295%22%20y%3D%22196%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-weight%3D%22900%22%20font-size%3D%2230%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%3EMT%3C%2Ftext%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%22326%22%20cy%3D%22191%22%20r%3D%224.5%22%20fill%3D%22%2338bdf8%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%22300%22%20y%3D%22295%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2225%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%3EBaobab%3C%2Ftext%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%22300%22%20y%3D%22330%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-weight%3D%22600%22%20font-size%3D%2214%22%20fill%3D%22%2338bdf8%22%20text-anchor%3D%22middle%22%20letter-spacing%3D%221.5%22%3E01%20%E2%80%A2%20IDENTIT%C3%89%20%20LOGO%3C%2Ftext%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%22300%22%20y%3D%22415%22%20font-family%3D%22system-ui%2Csans-serif%22%20font-weight%3D%22500%22%20font-size%3D%2212%22%20fill%3D%22%2394a3b8%22%20text-anchor%3D%22middle%22%3ECliquez%20sur%20%C2%AB%20%F0%9F%96%BC%EF%B8%8F%20Lier%20mes%20images%20%C2%BB%20pour%20charger%20le%20fichier%20local%3C%2Ftext%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fsvg%3E" alt="Aperçu Grand Format" class="max-h-[340px] sm:max-h-[380px] w-auto object-contain drop-shadow-2xl pointer-events-none">
 
+                            <!-- Zone Lecteur Vidéo Spotlight (pour les vidéos) -->
+                            <div id="spotlight-video-stage" class="hidden w-full h-full flex flex-col items-center justify-center relative">
+                                <video id="spotlight-video" controls playsinline class="w-full max-h-[340px] sm:max-h-[380px] rounded-2xl object-contain bg-black/90 shadow-2xl" src=""></video>
+                            </div>
+
                             <!-- Flèches Précédent / Suivant sur le visuel -->
                             <button type="button" onclick="stepSpotlightSlide(-1, event)" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-midnight-950/85 hover:bg-accent text-white hover:text-midnight-950 border border-accent/40 flex items-center justify-center font-bold text-lg transition shadow-lg" aria-label="Création précédente">
                                 ‹
@@ -1557,7 +1675,7 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                             </button>
 
                             <!-- Légende astuce en bas -->
-                            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 px-3 py-1 rounded-full bg-midnight-950/80 border border-slate-800/90 text-[10px] text-slate-400 pointer-events-none whitespace-nowrap">
+                            <div id="spotlight-hint" class="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 px-3 py-1 rounded-full bg-midnight-950/80 border border-slate-800/90 text-[10px] text-slate-400 pointer-events-none whitespace-nowrap">
                                 Survolez l'image pour zoomer sur les détails • Touches ← → ou Échap
                             </div>
                         </div>
@@ -1565,7 +1683,7 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                         <!-- Zone Droite : Infos de la création + Sélecteur de catégorie + Vignettes -->
                         <div class="lg:col-span-5 p-6 sm:p-7 flex flex-col justify-between bg-midnight-950/60">
                             <div>
-                                <!-- En-tête : Onglets rapides des 4 catégories + Bouton Fermer -->
+                                <!-- En-tête : Onglets rapides des 5 catégories + Bouton Fermer -->
                                 <div class="flex items-center justify-between gap-2 pb-4 border-b border-slate-800/80">
                                     <div class="flex flex-wrap gap-1" id="spotlight-cat-tabs">
                                         <button type="button" data-spot-cat="logo" onclick="switchSpotlightCategory('logo')" class="spot-cat-tab px-2.5 py-1 rounded-lg text-[10px] font-extrabold uppercase tracking-wider bg-accent text-midnight-950 transition">
@@ -1579,6 +1697,9 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                                         </button>
                                         <button type="button" data-spot-cat="plaque" onclick="switchSpotlightCategory('plaque')" class="spot-cat-tab px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-midnight-900 text-slate-400 hover:text-white border border-slate-800 transition">
                                             04 Plaque
+                                        </button>
+                                        <button type="button" data-spot-cat="video" onclick="switchSpotlightCategory('video')" class="spot-cat-tab px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider bg-midnight-900 text-slate-400 hover:text-white border border-slate-800 transition">
+                                            05 Vidéo
                                         </button>
                                     </div>
 
@@ -1622,7 +1743,7 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                                     Commander un projet similaire ↗
                                 </a>
                                 <button type="button" onclick="closeModal()" class="py-3 px-4 rounded-xl bg-midnight-900 hover:bg-midnight-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-bold transition">
-                                    Retour aux 4 cartes
+                                    Retour aux projets
                                 </button>
                             </div>
                         </div>
@@ -1665,6 +1786,10 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                                 <span>Placez votre fichier dans <code class="text-accent">videos/motion-reel.mp4</code><br>ou renseignez un lien YouTube / Vimeo dans <code class="text-accent">MOTION_CONFIG</code>.</span>
                             </div>
                         </div>
+                    </div>
+                    <!-- Sélecteur de vidéos / playlist dans Motion -->
+                    <div id="mo-playlist" class="flex flex-wrap gap-2 mt-4" aria-label="Sélectionner une vidéo">
+                        <!-- Injecté dynamiquement par JS -->
                     </div>
                     <p id="mo-video-desc" class="text-sm text-slate-400 mt-4 leading-relaxed"></p>
                 </article>
@@ -2829,6 +2954,42 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                         desc: 'Affiche promotionnelle New Academic\'s Sport — Club de Basketball (Saison 2025-2026).'
                     }
                 ]
+            },
+            video: {
+                tag: '05 • Vidéo & Motion',
+                interval: 5000,
+                activeIndex: 0,
+                isPaused: false,
+                progressTween: null,
+                items: [
+                    {
+                        title: 'Motion Reel Publicitaire',
+                        fileKey: 'motion-reel.mp4',
+                        src: 'videos/motion-reel.mp4',
+                        type: 'video',
+                        ratio: '16 / 9',
+                        poster: 'images/video-poster.webp',
+                        desc: 'Publicité animée et motion design : concept, modélisation de marque et animation dynamique au format horizontal 16:9.'
+                    },
+                    {
+                        title: 'Spot Commercial Mug',
+                        fileKey: 'commercial-mug.mp4',
+                        src: 'videos/commercial-mug.mp4',
+                        type: 'video',
+                        ratio: '9 / 16',
+                        poster: '',
+                        desc: 'Spot publicitaire vertical 9:16 pour Thermo Coffee Mug, optimisé pour les réseaux sociaux, Reels et Stories.'
+                    },
+                    {
+                        title: 'Montage Vidéo Reel',
+                        fileKey: 'montage-reel.mp4',
+                        src: 'videos/montage-reel.mp4',
+                        type: 'video',
+                        ratio: '9 / 16',
+                        poster: '',
+                        desc: 'Montage vidéo vertical rythmé : transitions dynamiques, étalonnage précis et mise en valeur moderne du sujet.'
+                    }
+                ]
             }
         };
 
@@ -3080,6 +3241,13 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
             const nextSlide = slides[targetIndex];
             const itemData = cat.items[targetIndex];
 
+            if (catId === 'video') {
+                const prevVid = currentSlide ? currentSlide.querySelector('video') : null;
+                if (prevVid) { prevVid.pause(); prevVid.currentTime = 0; }
+                const nextVid = nextSlide ? nextSlide.querySelector('video') : null;
+                if (nextVid && card.matches(':hover')) { nextVid.play().catch(() => {}); }
+            }
+
             if (counterEl) counterEl.textContent = targetIndex + 1;
 
             pills.forEach((pill, idx) => {
@@ -3225,6 +3393,14 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
             const item = cat.items[spotlightState.slideIdx] || cat.items[0];
 
             const spotImg = document.getElementById('spotlight-img');
+            const spotVidStage = document.getElementById('spotlight-video-stage');
+            const spotVid = document.getElementById('spotlight-video');
+            const loupeBtn = document.getElementById('spotlight-loupe-btn');
+            const bgPicker = document.getElementById('spotlight-bg-picker');
+            const videoBadges = document.getElementById('spotlight-video-badges');
+            const ratioBadge = document.getElementById('spotlight-video-ratio-badge');
+            const spotHint = document.getElementById('spotlight-hint');
+
             const spotTag = document.getElementById('spotlight-tag');
             const spotCounter = document.getElementById('spotlight-counter');
             const spotTitle = document.getElementById('spotlight-title');
@@ -3245,13 +3421,22 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                 }
             });
 
+            const isVideo = (item.type === 'video' || spotlightState.catId === 'video');
+
             if (spotThumbs) {
                 spotThumbs.innerHTML = cat.items.map((it, idx) => {
                     const isAct = idx === spotlightState.slideIdx;
+                    const previewContent = it.type === 'video'
+                        ? (it.poster
+                            ? `<img src="${it.poster}" alt="${it.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform">`
+                            : `<div class="w-full h-full flex flex-col items-center justify-center bg-midnight-950 text-rose-400 group-hover:scale-105 transition-transform"><span class="text-base">▶</span><span class="text-[8px] text-slate-400 font-bold uppercase mt-0.5">${it.ratio ? it.ratio.replace(/\s/g, '') : 'VIDÉO'}</span></div>`
+                          )
+                        : `<img src="${it.src}" alt="${it.title}" class="w-full h-full object-contain group-hover:scale-105 transition-transform">`;
+
                     return `
                         <button type="button" onclick="selectSpotlightItem(${idx})" class="group rounded-xl p-1.5 bg-midnight-900/90 border ${isAct ? 'border-accent ring-2 ring-accent/40' : 'border-slate-800 opacity-70 hover:opacity-100'} transition flex flex-col items-center gap-1 text-center">
-                            <div class="w-full h-14 rounded-lg bg-midnight-950 flex items-center justify-center p-1 overflow-hidden">
-                                <img src="${it.src}" alt="${it.title}" class="w-full h-full object-contain group-hover:scale-105 transition-transform">
+                            <div class="w-full h-14 rounded-lg bg-midnight-950 flex items-center justify-center p-1 overflow-hidden relative">
+                                ${previewContent}
                             </div>
                             <span class="text-[10px] font-bold ${isAct ? 'text-accent' : 'text-slate-300'} truncate w-full px-1">${it.title}</span>
                         </button>
@@ -3259,23 +3444,65 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                 }).join('');
             }
 
-            if (spotImg) {
-                if (animateImg && typeof gsap !== 'undefined') {
-                    gsap.killTweensOf(spotImg);
-                    gsap.fromTo(spotImg,
-                        { opacity: 0, scale: 0.92, filter: 'blur(5px)' },
-                        {
-                            opacity: 1,
-                            scale: 1,
-                            filter: 'blur(0px)',
-                            duration: 0.42,
-                            ease: 'expo.out',
-                            onStart: () => { spotImg.src = item.src; spotImg.alt = item.title; }
-                        }
-                    );
-                } else {
-                    spotImg.src = item.src;
-                    spotImg.alt = item.title;
+            if (isVideo) {
+                if (spotImg) {
+                    spotImg.classList.add('hidden');
+                    spotImg.style.transform = 'scale(1)';
+                }
+                if (spotVidStage) spotVidStage.classList.remove('hidden');
+                if (loupeBtn) loupeBtn.classList.add('hidden');
+                if (bgPicker) bgPicker.classList.add('hidden');
+                if (videoBadges) videoBadges.classList.remove('hidden');
+                if (ratioBadge) {
+                    const isVert = (item.ratio && (item.ratio.includes('9/16') || item.ratio.includes('9 / 16')));
+                    ratioBadge.textContent = isVert ? 'Format : 9:16 Vertical' : 'Format : 16:9 Horizontal';
+                }
+                if (spotHint) spotHint.textContent = "Lecteur vidéo haute définition • Touches ← → ou Échap";
+
+                if (spotVid) {
+                    spotVid.pause();
+                    spotVid.src = item.src;
+                    if (item.poster) spotVid.poster = item.poster; else spotVid.removeAttribute('poster');
+                    const isVertical = item.ratio && (item.ratio.includes('9/16') || item.ratio.includes('9 / 16'));
+                    if (isVertical) {
+                        spotVid.style.maxWidth = '250px';
+                        spotVid.style.aspectRatio = '9 / 16';
+                    } else {
+                        spotVid.style.maxWidth = '100%';
+                        spotVid.style.aspectRatio = '16 / 9';
+                    }
+                    spotVid.load();
+                }
+            } else {
+                if (spotVid) {
+                    spotVid.pause();
+                    spotVid.removeAttribute('src');
+                }
+                if (spotVidStage) spotVidStage.classList.add('hidden');
+                if (spotImg) spotImg.classList.remove('hidden');
+                if (loupeBtn) loupeBtn.classList.remove('hidden');
+                if (bgPicker) bgPicker.classList.remove('hidden');
+                if (videoBadges) videoBadges.classList.add('hidden');
+                if (spotHint) spotHint.textContent = "Survolez l'image pour zoomer sur les détails • Touches ← → ou Échap";
+
+                if (spotImg) {
+                    if (animateImg && typeof gsap !== 'undefined') {
+                        gsap.killTweensOf(spotImg);
+                        gsap.fromTo(spotImg,
+                            { opacity: 0, scale: 0.92, filter: 'blur(5px)' },
+                            {
+                                opacity: 1,
+                                scale: 1,
+                                filter: 'blur(0px)',
+                                duration: 0.42,
+                                ease: 'expo.out',
+                                onStart: () => { spotImg.src = item.src; spotImg.alt = item.title; }
+                            }
+                        );
+                    } else {
+                        spotImg.src = item.src;
+                        spotImg.alt = item.title;
+                    }
                 }
             }
         }
@@ -3427,6 +3654,10 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                     const cat = portfolioCategories[catId];
                     cat.isPaused = true;
                     if (cat.progressTween) cat.progressTween.pause();
+                    if (catId === 'video') {
+                        const activeVideo = card.querySelector('.proj-slide.is-active video');
+                        if (activeVideo) activeVideo.play().catch(() => {});
+                    }
                 });
 
                 card.addEventListener('mouseleave', () => {
@@ -3434,6 +3665,13 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
                     const cat = portfolioCategories[catId];
                     cat.isPaused = false;
                     if (cat.progressTween) cat.progressTween.play();
+                    if (catId === 'video') {
+                        const allVideos = card.querySelectorAll('video');
+                        allVideos.forEach(v => {
+                            v.pause();
+                            v.currentTime = 0;
+                        });
+                    }
                 });
             });
         })();
@@ -3490,6 +3728,11 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
             const backdropEl = document.getElementById('spotlight-backdrop');
             const gridEl = document.getElementById('portfolio-grid');
             const img = document.getElementById('spotlight-img');
+            const spotVid = document.getElementById('spotlight-video');
+
+            if (spotVid) {
+                spotVid.pause();
+            }
 
             spotlightState.isOpen = false;
             if (img) img.style.transform = 'scale(1)';
@@ -3938,15 +4181,41 @@ Réponds en français de manière chaleureuse, concise (3 phrases maximum) et in
 
 
 <script>
-/* ===== Réglages de la section Motion & IA : modifiez uniquement cet objet ===== */
+/* ===== Réglages de la section Motion & IA : modifiez ou ajoutez vos vidéos ici ===== */
 const MOTION_CONFIG = {
-    video: {
-        title: "Vidéo publicitaire • Motion design",
-        description: "Publicité animée réalisée de A à Z : concept, storyboard, génération des scènes par IA et montage.",
-        src: "videos/motion-reel.mp4",   // fichier local (MP4 H.264 conseillé)
-        poster: "images/video-poster.webp", // image affichée avant la lecture
-        embed: "",                       // OU lien YouTube / Vimeo (prioritaire s’il est rempli)
-        ratio: "16 / 9"                  // "9 / 16" pour une vidéo verticale
+    activeVideoIndex: 0,
+    videos: [
+        {
+            title: "Vidéo publicitaire • Motion design (16:9)",
+            shortTitle: "Motion Reel (16:9)",
+            description: "Publicité animée réalisée de A à Z : concept, storyboard, modélisation de marque et animation dynamique.",
+            src: "videos/motion-reel.mp4",        // fichier local
+            poster: "images/video-poster.webp",    // image affichée avant la lecture
+            embed: "",                            // OU lien YouTube / Vimeo (prioritaire)
+            ratio: "16 / 9"                       // "16 / 9" horizontal ou "9 / 16" vertical
+        },
+        {
+            title: "Spot Commercial • Thermo Coffee Mug (9:16)",
+            shortTitle: "Spot Coffee Mug (9:16)",
+            description: "Spot publicitaire vertical au format Reel / Story : mise en valeur produit percutante et dynamique pour les réseaux.",
+            src: "videos/commercial-mug.mp4",
+            poster: "",
+            embed: "",
+            ratio: "9 / 16"
+        },
+        {
+            title: "Montage Vidéo • Rythme & Transitions (9:16)",
+            shortTitle: "Montage Reel (9:16)",
+            description: "Montage vidéo vertical rythmé : transitions dynamiques, étalonnage précis et mise en valeur moderne.",
+            src: "videos/montage-reel.mp4",
+            poster: "",
+            embed: "",
+            ratio: "9 / 16"
+        }
+    ],
+    // Rétrocompatibilité
+    get video() {
+        return this.videos[this.activeVideoIndex] || this.videos[0];
     },
     site: {
         title: "MTdailywork • Suivi quotidien automatisé",
@@ -3958,9 +4227,9 @@ const MOTION_CONFIG = {
 (function () {
     const C = MOTION_CONFIG, $ = id => document.getElementById(id);
 
-    // Textes
-    $("mo-video-title").textContent = C.video.title; $("mo-video-desc").textContent = C.video.description;
-    $("mo-site-title").textContent = C.site.title;   $("mo-site-desc").textContent = C.site.description;
+    // Textes Site
+    $("mo-site-title").textContent = C.site.title;
+    $("mo-site-desc").textContent = C.site.description;
     $("mo-site-url").textContent = C.site.url.replace(/^https?:\/\//, "");
     $("mo-site-open").href = C.site.url;
 
@@ -3971,17 +4240,16 @@ const MOTION_CONFIG = {
         reveals.forEach(el => io.observe(el));
     } else { reveals.forEach(el => el.classList.add("is-in")); }
 
-    // Allège la page pendant la lecture : animations GSAP en pause + aperçu du site déchargé
+    // Allège la page pendant la lecture
     function setHeavy(on) {
         document.body.classList.toggle("mo-playing", on);
         if (typeof gsap !== "undefined") { if (on) gsap.globalTimeline.pause(); else gsap.globalTimeline.resume(); }
         if (on) unloadSite();
     }
 
-    // ---------- Vidéo ----------
-    const stage = $("mo-video-stage"), playBtn = $("mo-play"), empty = $("mo-empty");
-    stage.style.aspectRatio = C.video.ratio;
-    if (C.video.ratio.replace(/\s/g, "") === "9/16") { stage.style.maxWidth = "360px"; stage.style.margin = "0 auto"; }
+    // ---------- Gestionnaire de Vidéos & Playlist ----------
+    const stage = $("mo-video-stage"), playBtn = $("mo-play"), empty = $("mo-empty"), playlistEl = $("mo-playlist");
+    let currentVideoEl = null, currentIframeEl = null;
 
     function toEmbed(u) {
         let m = u.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([\w-]{11})/);
@@ -3990,26 +4258,113 @@ const MOTION_CONFIG = {
         if (m) return "https://player.vimeo.com/video/" + m[1] + "?autoplay=1";
         return "";
     }
-    const embedUrl = C.video.embed ? toEmbed(C.video.embed) : "";
 
-    if (embedUrl) {
-        playBtn.addEventListener("click", () => {
-            const f = document.createElement("iframe");
-            f.src = embedUrl; f.allow = "autoplay; fullscreen; picture-in-picture"; f.allowFullscreen = true; f.title = C.video.title;
-            stage.appendChild(f); playBtn.classList.add("is-hidden"); setHeavy(true);
-        });
-    } else {
-        const v = document.createElement("video");
-        v.preload = "metadata"; v.playsInline = true; v.setAttribute("playsinline", "");
-        if (C.video.poster) v.poster = C.video.poster;
-        v.src = C.video.src;
-        v.addEventListener("error", () => { v.remove(); playBtn.classList.add("is-hidden"); empty.classList.add("is-on"); });
-        v.addEventListener("play", () => { playBtn.classList.add("is-hidden"); v.controls = true; setHeavy(true); });
-        v.addEventListener("pause", () => setHeavy(false));
-        v.addEventListener("ended", () => { playBtn.classList.remove("is-hidden"); v.controls = false; setHeavy(false); });
-        stage.insertBefore(v, playBtn);
-        playBtn.addEventListener("click", () => v.play());
+    function loadActiveVideo(idx, autoPlay = false) {
+        C.activeVideoIndex = idx;
+        const curVid = C.videos[idx] || C.videos[0];
+
+        // Textes
+        $("mo-video-title").textContent = curVid.title;
+        $("mo-video-desc").textContent = curVid.description;
+
+        // Ratio & Dimensions
+        const isVertical = (curVid.ratio && (curVid.ratio.includes("9/16") || curVid.ratio.includes("9 / 16")));
+        stage.style.aspectRatio = isVertical ? "9 / 16" : "16 / 9";
+        if (isVertical) {
+            stage.style.maxWidth = "340px";
+            stage.style.margin = "0 auto";
+        } else {
+            stage.style.maxWidth = "100%";
+            stage.style.margin = "0";
+        }
+
+        // Nettoyage éléments précédents
+        if (currentVideoEl) { currentVideoEl.pause(); currentVideoEl.remove(); currentVideoEl = null; }
+        if (currentIframeEl) { currentIframeEl.remove(); currentIframeEl = null; }
+        setHeavy(false);
+        playBtn.classList.remove("is-hidden");
+        empty.classList.remove("is-on");
+
+        const embedUrl = curVid.embed ? toEmbed(curVid.embed) : "";
+
+        if (embedUrl) {
+            const clickHandler = () => {
+                currentIframeEl = document.createElement("iframe");
+                currentIframeEl.src = embedUrl;
+                currentIframeEl.allow = "autoplay; fullscreen; picture-in-picture";
+                currentIframeEl.allowFullscreen = true;
+                currentIframeEl.title = curVid.title;
+                stage.appendChild(currentIframeEl);
+                playBtn.classList.add("is-hidden");
+                setHeavy(true);
+            };
+            playBtn.onclick = clickHandler;
+            if (autoPlay) clickHandler();
+        } else {
+            const v = document.createElement("video");
+            v.preload = "metadata";
+            v.playsInline = true;
+            v.setAttribute("playsinline", "");
+            if (curVid.poster) v.poster = curVid.poster;
+            v.src = curVid.src;
+
+            v.addEventListener("error", () => {
+                v.remove();
+                playBtn.classList.add("is-hidden");
+                empty.classList.add("is-on");
+            });
+            v.addEventListener("play", () => {
+                playBtn.classList.add("is-hidden");
+                v.controls = true;
+                setHeavy(true);
+            });
+            v.addEventListener("pause", () => setHeavy(false));
+            v.addEventListener("ended", () => {
+                playBtn.classList.remove("is-hidden");
+                v.controls = false;
+                setHeavy(false);
+            });
+
+            stage.insertBefore(v, playBtn);
+            currentVideoEl = v;
+            playBtn.onclick = () => v.play();
+            if (autoPlay) v.play().catch(() => {});
+        }
+
+        // Mettre à jour l'état des pastilles
+        if (playlistEl) {
+            const pills = playlistEl.querySelectorAll(".mo-playlist-pill");
+            pills.forEach((p, i) => {
+                if (i === idx) {
+                    p.className = "mo-playlist-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-accent text-midnight-950 border border-accent shadow-md shadow-accent/20 cursor-pointer";
+                } else {
+                    p.className = "mo-playlist-pill px-3 py-1.5 rounded-xl text-xs font-semibold bg-midnight-900/90 text-slate-300 hover:text-white border border-slate-800 transition-colors cursor-pointer";
+                }
+            });
+        }
     }
+
+    // Création de la playlist interactive
+    if (playlistEl && C.videos && C.videos.length > 1) {
+        playlistEl.innerHTML = C.videos.map((vid, idx) => {
+            const isAct = idx === C.activeVideoIndex;
+            return `
+                <button type="button" data-video-idx="${idx}" class="mo-playlist-pill px-3 py-1.5 rounded-xl text-xs ${isAct ? 'font-bold bg-accent text-midnight-950 border border-accent shadow-md shadow-accent/20' : 'font-semibold bg-midnight-900/90 text-slate-300 hover:text-white border border-slate-800 transition-colors'} cursor-pointer">
+                    ${vid.shortTitle || vid.title}
+                </button>
+            `;
+        }).join("");
+
+        playlistEl.querySelectorAll(".mo-playlist-pill").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const idx = parseInt(btn.getAttribute("data-video-idx"), 10);
+                loadActiveVideo(idx, false);
+            });
+        });
+    }
+
+    // Chargement initial de la vidéo 0
+    loadActiveVideo(0, false);
 
     // ---------- Aperçu du site (activé à la demande) ----------
     const vp = $("mo-site-viewport");
