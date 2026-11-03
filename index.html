@@ -419,6 +419,59 @@
             box-shadow: 0 4px 14px rgba(91, 157, 255, 0.35);
         }
 
+        /* ===== Section Vidéo Pro avec l'IA ===== */
+        .pro-video-card {
+            background: linear-gradient(155deg, rgba(14, 24, 56, 0.8) 0%, rgba(4, 7, 17, 0.95) 100%);
+            border: 1px solid rgba(91, 157, 255, 0.22);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.35s ease,
+                        box-shadow 0.35s ease;
+        }
+        .pro-video-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.65);
+            box-shadow: 0 25px 50px -15px rgba(56, 189, 248, 0.25),
+                        0 0 35px -5px rgba(91, 157, 255, 0.22);
+        }
+        .pro-video-stage {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #02040a;
+            border-radius: 1rem 1rem 0 0;
+        }
+        .pro-video-stage video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .pro-video-card:hover .pro-video-stage video {
+            transform: scale(1.05);
+        }
+        .pro-video-play-btn {
+            width: 58px;
+            height: 58px;
+            border-radius: 9999px;
+            display: grid;
+            place-items: center;
+            background: rgba(4, 7, 17, 0.75);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(91, 157, 255, 0.5);
+            color: #fff;
+            font-size: 20px;
+            padding-left: 3px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .pro-video-card:hover .pro-video-play-btn {
+            background: #5B9DFF;
+            color: #040711;
+            border-color: #38bdf8;
+            transform: scale(1.12);
+            box-shadow: 0 0 25px rgba(91, 157, 255, 0.7);
+        }
+
         /* Barre de progression fine et lumineuse */
         .proj-progress-track {
             position: absolute;
@@ -674,6 +727,7 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
 
                 <nav id="nav-menu" aria-label="Menu principal" class="hidden lg:flex items-center justify-end gap-6 text-sm font-semibold text-slate-300">
                     <a href="#projets" class="nav-item-link hover:text-accent" style="">Projet</a>
+                    <a href="#video-ia" class="nav-item-link hover:text-accent flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>Vidéo Pro IA</a>
                     <a href="#motion" class="nav-item-link hover:text-accent">Motion &amp; IA</a>
                     <a href="#expertise" class="nav-item-link hover:text-accent" style="">Avant et après</a>
                     <a href="#services" class="nav-item-link hover:text-accent" style="">Services</a>
@@ -696,6 +750,7 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
         <!-- Menu déroulant Mobile / Écran partagé -->
         <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800/80 bg-midnight-950/95 px-6 py-4 space-y-3 text-sm font-semibold text-slate-300">
             <a href="#projets" class="mobile-link block py-2 hover:text-accent">Projet</a>
+            <a href="#video-ia" class="mobile-link block py-2 hover:text-accent"><span class="inline-block w-1.5 h-1.5 rounded-full bg-rose-400 mr-1.5"></span>Vidéo Pro IA</a>
             <a href="#motion" class="mobile-link block py-2 hover:text-accent">Motion &amp; IA</a>
             <a href="#expertise" class="mobile-link block py-2 hover:text-accent">Avant et après</a>
             <a href="#services" class="mobile-link block py-2 hover:text-accent">Services</a>
@@ -1768,6 +1823,246 @@ body.mo-playing .midnight-card, body.mo-playing nav, body.mo-playing header { ba
             </div>
         </div>
     </section>
+
+
+    <!-- =========================================================
+         SECTION CRÉATION DE VIDÉO PRO AVEC L'IA (#video-ia)
+         ========================================================= -->
+    <section id="video-ia" class="py-24 relative scroll-mt-20 border-t border-slate-800/60 bg-midnight-950/40">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- En-tête de section -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6 mo-reveal">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-extrabold tracking-[0.2em] uppercase mb-3">
+                        <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
+                        Studio Vidéo IA &amp; Production Pro
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                        Création de vidéo Pro <span class="font-serif italic font-normal text-accent">avec l’IA</span>.
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+                        De la scénarisation à la post-production finale : je conçois des vidéos publicitaires, institutionnelles et explicatives qui captivent votre audience en combinant la puissance de l'IA générative et une finition visuelle ultra-soignée.
+                    </p>
+                </div>
+
+                <!-- Workflow Pills / Tags -->
+                <div class="flex flex-wrap gap-2 text-[11px] font-bold text-slate-300">
+                    <span class="px-3 py-1.5 rounded-xl bg-midnight-900 border border-slate-800 flex items-center gap-1.5">
+                        <span class="text-accent">✨</span> Storyboards &amp; Prompts
+                    </span>
+                    <span class="px-3 py-1.5 rounded-xl bg-midnight-900 border border-slate-800 flex items-center gap-1.5">
+                        <span class="text-rose-400">🎙️</span> Voix Off Réalistes
+                    </span>
+                    <span class="px-3 py-1.5 rounded-xl bg-midnight-900 border border-slate-800 flex items-center gap-1.5">
+                        <span class="text-emerald-400">⚡</span> Rendu 16:9 HD &amp; 1080p
+                    </span>
+                </div>
+            </div>
+
+            <!-- Grille Showcase des 3 Vidéos Pro IA -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+                <!-- CARTE 1 : TUP -->
+                <article class="pro-video-card rounded-2xl overflow-hidden flex flex-col group mo-reveal" data-d="1">
+                    <div class="pro-video-stage group cursor-pointer" onclick="openProVideoModal(0)">
+                        <video src="videos/ia-tup-presentation.mp4" muted loop playsinline preload="metadata" class="w-full h-full object-cover"></video>
+                        
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="pro-video-play-btn">
+                                <span class="ml-0.5">▶</span>
+                            </div>
+                        </div>
+
+                        <!-- Badges supérieurs -->
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-midnight-950/85 backdrop-blur-md border border-accent/40 text-[10px] font-extrabold text-accent uppercase tracking-wider">
+                            01 • B2B &amp; Service
+                        </div>
+                        <div class="absolute top-3 right-3 px-2 py-0.5 rounded-lg bg-midnight-950/85 backdrop-blur-md border border-slate-700/80 text-[10px] font-bold text-slate-300">
+                            16:9 • HD
+                        </div>
+
+                        <!-- Durée -->
+                        <div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono text-slate-300 border border-white/10">
+                            01:03
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-rose-300 uppercase tracking-wider">Vidéo B2B • Démonstration</span>
+                            <h3 class="text-lg font-extrabold text-white mt-1 group-hover:text-accent transition-colors">
+                                TUP — Présentation Entreprise &amp; Service
+                            </h3>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                Vidéo de présentation B2B pour le service TUP (TopSocietes) : narration rythmée, démonstration d'interface, visuels générés par IA et habillage animé professionnel.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-slate-800/80">
+                                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-midnight-900 border border-slate-800 text-slate-300">✨ Storyboard IA</span>
+                                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-midnight-900 border border-slate-800 text-slate-300">🎙️ Narration Studio</span>
+                                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-midnight-900 border border-slate-800 text-slate-300">🎬 Motion B2B</span>
+                            </div>
+
+                            <button type="button" onclick="openProVideoModal(0)" class="w-full mt-4 py-2.5 px-3 rounded-xl bg-midnight-900 hover:bg-accent text-slate-200 hover:text-midnight-950 font-bold text-xs transition-all border border-slate-800 hover:border-accent flex items-center justify-center gap-2">
+                                <span>Visionner en grand format</span>
+                                <span>⤢</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARTE 2 : APPELS D'OFFRES -->
+                <article class="pro-video-card rounded-2xl overflow-hidden flex flex-col group mo-reveal" data-d="2">
+                    <div class="pro-video-stage group cursor-pointer" onclick="openProVideoModal(1)">
+                        <video src="videos/ia-appel-offre.mp4" muted loop playsinline preload="metadata" class="w-full h-full object-cover"></video>
+                        
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="pro-video-play-btn">
+                                <span class="ml-0.5">▶</span>
+                            </div>
+                        </div>
+
+                        <!-- Badges supérieurs -->
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-midnight-950/85 backdrop-blur-md border border-amber-400/40 text-[10px] font-extrabold text-amber-300 uppercase tracking-wider">
+                            02 • Guide Commercial
+                        </div>
+                        <div class="absolute top-3 right-3 px-2 py-0.5 rounded-lg bg-midnight-950/85 backdrop-blur-md border border-slate-700/80 text-[10px] font-bold text-slate-300">
+                            16:9 • HD
+                        </div>
+
+                        <!-- Durée -->
+                        <div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono text-slate-300 border border-white/10">
+                            00:30
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-amber-300 uppercase tracking-wider">Clip Stratégique • Conversion</span>
+                            <h3 class="text-lg font-extrabold text-white mt-1 group-hover:text-accent transition-colors">
+                                Appels d'Offres — Guide &amp; Marchés Publics
+                            </h3>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                Clip commercial et explicatif sur la veille et la conquête des marchés publics : script percutant, animations claires et sound design calibré pour engager et convertir.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-slate-800/80">
+                                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-midnight-900 border border-slate-800 text-slate-300">🎯 Script Stratégique</span>
+                                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-midnight-900 border border-slate-800 text-slate-300">🤖 Direction IA</span>
+                                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-midnight-900 border border-slate-800 text-slate-300">📈 Conversion</span>
+                            </div>
+
+                            <button type="button" onclick="openProVideoModal(1)" class="w-full mt-4 py-2.5 px-3 rounded-xl bg-midnight-900 hover:bg-accent text-slate-200 hover:text-midnight-950 font-bold text-xs transition-all border border-slate-800 hover:border-accent flex items-center justify-center gap-2">
+                                <span>Visionner en grand format</span>
+                                <span>⤢</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CARTE 3 : MOTION DESIGN TOPSOCIETES -->
+                <article class="pro-video-card rounded-2xl overflow-hidden flex flex-col group mo-reveal" data-d="3">
+                    <div class="pro-video-stage group cursor-pointer" onclick="openProVideoModal(2)">
+                        <video src="videos/ia-motion-design.mp4" muted loop playsinline preload="metadata" class="w-full h-full object-cover"></video>
+                        
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="pro-video-play-btn">
+                                <span class="ml-0.5">▶</span>
+                            </div>
+                        </div>
+
+                        <!-- Badges supérieurs -->
+                        <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-midnight-950/85 backdrop-blur-md border border-purple-400/40 text-[10px] font-extrabold text-purple-300 uppercase tracking-wider">
+                            03 • Branding &amp; Motion
+                        </div>
+                        <div class="absolute top-3 right-3 px-2 py-0.5 rounded-lg bg-midnight-950/85 backdrop-blur-md border border-purple-500/40 text-[10px] font-bold text-purple-200">
+                            16:9 • 1080p
+                        </div>
+
+                        <!-- Durée -->
+                        <div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-sm text-[10px] font-mono text-slate-300 border border-white/10">
+                            00:31
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-purple-300 uppercase tracking-wider">Publicité &amp; Image de Marque</span>
+                            <h3 class="text-lg font-extrabold text-white mt-1 group-hover:text-accent transition-colors">
+                                TopSocietes — Motion Design &amp; Branding Pro
+                            </h3>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                Spot publicitaire Full HD pour TopSocietes : composition visuelle avancée, typographie cinétique, identité de marque affirmée et transitions fluides et rythmées.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-slate-800/80">
+                                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-midnight-900 border border-slate-800 text-slate-300">💎 Full HD 1080p</span>
+                                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-midnight-900 border border-slate-800 text-slate-300">✨ Identité Forte</span>
+                                <span class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-midnight-900 border border-slate-800 text-slate-300">🚀 Motion Pro</span>
+                            </div>
+
+                            <button type="button" onclick="openProVideoModal(2)" class="w-full mt-4 py-2.5 px-3 rounded-xl bg-midnight-900 hover:bg-accent text-slate-200 hover:text-midnight-950 font-bold text-xs transition-all border border-slate-800 hover:border-accent flex items-center justify-center gap-2">
+                                <span>Visionner en grand format</span>
+                                <span>⤢</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =========================================================
+         MODALE LECTEUR GRAND ÉCRAN • VIDÉOS PRO IA
+         ========================================================= -->
+    <div id="pro-video-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6" aria-hidden="true">
+        <!-- Voile flouté -->
+        <div class="absolute inset-0 bg-midnight-950/85 backdrop-blur-md cursor-pointer" onclick="closeProVideoModal()"></div>
+
+        <!-- Panneau Spotlight -->
+        <div class="relative z-10 w-full max-w-4xl rounded-3xl overflow-hidden spotlight-glass-panel border border-sky-400/40 flex flex-col shadow-2xl">
+            <!-- Barre supérieure -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-800/80 bg-midnight-950/90">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+                    <span id="pvm-tag" class="text-xs font-extrabold uppercase tracking-widest text-accent">01 • Vidéo Pro IA</span>
+                </div>
+                <button type="button" onclick="closeProVideoModal()" class="w-9 h-9 rounded-xl bg-midnight-900 hover:bg-rose-500/20 border border-slate-700 hover:border-rose-400 text-slate-300 hover:text-white flex items-center justify-center transition" title="Fermer (Échap)">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Lecteur 16:9 Full Format -->
+            <div class="relative bg-black aspect-video w-full flex items-center justify-center overflow-hidden">
+                <video id="pvm-video" controls playsinline class="w-full h-full object-contain" src=""></video>
+            </div>
+
+            <!-- Infos de la création -->
+            <div class="p-6 bg-midnight-950/95 flex flex-col md:flex-row md:items-center justify-between gap-4 border-t border-slate-800/80">
+                <div>
+                    <h3 id="pvm-title" class="text-xl sm:text-2xl font-extrabold text-white">Titre de la vidéo</h3>
+                    <p id="pvm-desc" class="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">Description de la création...</p>
+                    <div id="pvm-badges" class="flex flex-wrap gap-1.5 mt-3"></div>
+                </div>
+                <div class="flex items-center gap-3 shrink-0">
+                    <a href="#commande" onclick="closeProVideoModal()" class="px-5 py-3 rounded-xl bg-accent hover:bg-sky-400 text-midnight-950 font-extrabold text-xs tracking-wide transition shadow-lg shadow-accent/20 flex items-center gap-1.5">
+                        <span>Commander une vidéo similaire</span>
+                        <span>↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- =========================================================
@@ -4201,6 +4496,99 @@ Réponds en français de manière chaleureuse, concise (3 phrases maximum) et in
             }
         }
     </script>
+
+
+<script>
+/* ===== Logique de la Section Vidéo Pro avec l'IA ===== */
+const PRO_VIDEOS_DATA = [
+    {
+        tag: "01 • Vidéo B2B & Plateforme",
+        title: "TUP — Présentation Entreprise & Service",
+        src: "videos/ia-tup-presentation.mp4",
+        format: "16:9 • HD 720p",
+        duration: "01:03",
+        desc: "Vidéo de présentation B2B pour le service TUP (TopSocietes) : narration rythmée, démonstration d'interface, visuels générés par IA et habillage animé professionnel.",
+        badges: ["✨ Storyboard IA", "🎙️ Narration Studio", "🎬 Animation B2B", "⚡ 16:9 HD"]
+    },
+    {
+        tag: "02 • Clip Commercial & Stratégique",
+        title: "Appels d'Offres — Guide & Marchés Publics",
+        src: "videos/ia-appel-offre.mp4",
+        format: "16:9 • HD 720p",
+        duration: "00:30",
+        desc: "Clip commercial et explicatif sur la veille et la conquête des marchés publics : script percutant, animations graphiques claires et sound design calibré pour engager et convertir.",
+        badges: ["🎯 Script Stratégique", "🤖 Direction IA", "📈 Conversion", "🎵 Sound Design"]
+    },
+    {
+        tag: "03 • Branding & Motion Design Full HD",
+        title: "TopSocietes — Motion Design & Branding Pro",
+        src: "videos/ia-motion-design.mp4",
+        format: "16:9 • Full HD 1080p",
+        duration: "00:31",
+        desc: "Spot publicitaire Full HD pour TopSocietes : composition visuelle avancée, typographie cinétique, identité de marque affirmée et transitions fluides et rythmées.",
+        badges: ["💎 Full HD 1080p", "✨ Identité Forte", "🚀 Motion Pro", "⚡ Transitions Fluides"]
+    }
+];
+
+function openProVideoModal(index) {
+    const data = PRO_VIDEOS_DATA[index];
+    if (!data) return;
+    const modal = document.getElementById("pro-video-modal");
+    const video = document.getElementById("pvm-video");
+    const tag = document.getElementById("pvm-tag");
+    const title = document.getElementById("pvm-title");
+    const desc = document.getElementById("pvm-desc");
+    const badges = document.getElementById("pvm-badges");
+
+    if (tag) tag.textContent = data.tag;
+    if (title) title.textContent = data.title;
+    if (desc) desc.textContent = data.desc;
+    if (badges) {
+        badges.innerHTML = data.badges.map(b => `<span class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-midnight-900 border border-slate-700 text-slate-300">${b}</span>`).join("");
+    }
+
+    if (video) {
+        video.src = data.src;
+        video.currentTime = 0;
+        video.play().catch(() => {});
+    }
+
+    if (modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeProVideoModal() {
+    const modal = document.getElementById("pro-video-modal");
+    const video = document.getElementById("pvm-video");
+    if (video) {
+        video.pause();
+        video.removeAttribute("src");
+    }
+    if (modal) modal.classList.add("hidden");
+    document.body.style.overflow = "";
+}
+
+(function initProVideoPreviews() {
+    const cards = document.querySelectorAll(".pro-video-card");
+    cards.forEach(card => {
+        const vid = card.querySelector("video");
+        if (!vid) return;
+        card.addEventListener("mouseenter", () => {
+            vid.play().catch(() => {});
+        });
+        card.addEventListener("mouseleave", () => {
+            vid.pause();
+            vid.currentTime = 0;
+        });
+    });
+
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeProVideoModal();
+    });
+})();
+</script>
 
 
 <script>
